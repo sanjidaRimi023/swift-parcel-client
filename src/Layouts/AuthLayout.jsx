@@ -2,13 +2,12 @@ import React from "react";
 import { Outlet } from "react-router";
 import authImage from "../assets/authImage.png";
 import Logo from "../Components/Logo";
-import "../../src/index.css"
 
 const AuthLayout = () => {
   return (
     <>
        
-        <div className="bg-base-200 p-8">
+        <div data-theme="light" className="bg-base-200 p-8">
         <Logo />
         <div className="container mx-auto hero-content flex-col lg:flex-row-reverse p-20">
           <div className="flex-1">

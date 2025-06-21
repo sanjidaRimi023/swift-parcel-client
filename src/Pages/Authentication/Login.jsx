@@ -1,7 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { Link, NavLink } from "react-router";
-import '../../../src/index.css';
+import "../../../src/index.css";
 
 const Login = () => {
   const {
@@ -14,7 +14,6 @@ const Login = () => {
   };
   return (
     <div>
-      <button className="btn btn-primary">click</button>
       <form onSubmit={handleSubmit(onSubmit)}>
         <p className="text-4xl  font-bold">Welcome Back </p>
         <p className="text-lg">Login with SwiftParcel</p>
@@ -24,7 +23,10 @@ const Login = () => {
             type="email"
             className="input"
             placeholder="Email"
-            {...register("email", { required: true })}
+            {...register("email", {
+              required: true,
+              pattern: /^[A-Za-z\d]{6,}$/,
+            })}
           />
           {errors.email?.type === "required" && (
             <p className="text-red-500">email is requied</p>

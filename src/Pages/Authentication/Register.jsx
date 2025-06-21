@@ -4,11 +4,13 @@ import { useForm } from "react-hook-form";
 const Register = () => {
   const {
     register,
-      formState: { errors },
-    handleSubmit
-    } = useForm();
-    const onSubmit = (data) => {
-    console.log(data);
+    formState: { errors },
+      handleSubmit,
+    reset
+  } = useForm();
+  const onSubmit = (data) => {
+      console.log(data);
+      reset()
   };
   return (
     <div>
@@ -38,12 +40,15 @@ const Register = () => {
             className="input"
             placeholder="Email"
           />
-                  {errors.email?.type === "required" && <p>Email is required</p>}
-                  
+          {errors.email?.type === "required" && <p>Email is required</p>}
 
           <label className="label">Password</label>
-          <input type="password" className="input" placeholder="Password" />
-
+                  <input
+                      {...register("password", {required: true, minLength: 6})}
+                      type="password"
+                      className="input"
+                      placeholder="Password" />
+          {errors.password?.type === "required" && <p>password is required</p>}
           <div>
             <a className="link link-hover">Forgot password?</a>
           </div>
