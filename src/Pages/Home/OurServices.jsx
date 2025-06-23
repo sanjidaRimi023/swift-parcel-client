@@ -50,12 +50,12 @@ const services = [
 const OurServices = () => {
   return (
     <section className="py-16 bg-secondary text-center rounded-2xl mb-10">
-      <div className="container mx-auto px-4">
+      <div className="px-4">
         <h2 className="lg:text-4xl text-white font-bold mb-4">Our Services</h2>
         <p className="mb-10 text-white max-w-2xl mx-auto">
           Enjoy fast, reliable parcel delivery with real-time tracking and zero
           hassle. From personal packages to business shipments — we deliver on
-          💯, every time.
+      100, every time.
         </p>
 
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 px-4 md:px-10">

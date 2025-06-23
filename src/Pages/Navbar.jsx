@@ -2,21 +2,22 @@ import React from "react";
 import { NavLink } from "react-router";
 import ToggleButtons from "../Components/ToggleButtons";
 import useTheme from "../Hooks/useTheme";
-import Logo from "../Components/logo";
+import Logo from "../Components/Logosection";
 
 const Navbar = () => {
-     const { theme, toggleTheme } = useTheme();
-    const navItem = 
-        <>
-            <NavLink>Home</NavLink>
-            <NavLink>Coverage</NavLink>
-            <NavLink>Pricing</NavLink>
-            <NavLink>About Us</NavLink>
-            <NavLink>Be a Rider</NavLink>
-        </>
+  const { theme, toggleTheme } = useTheme();
+  const navItem = (
+    <>
+      <NavLink to="/">Home</NavLink>
+      <NavLink to="/coverage">Coverage</NavLink>
+      <NavLink to="/pricing">Pricing</NavLink>
+      <NavLink to="/about-use">About Us</NavLink>
+      <NavLink to="/be-a-rider">Be a Rider</NavLink>
+    </>
+  );
   return (
     <>
-      <div className="navbar bg-base-200 shadow-sm rounded-xl mt-4">
+      <div className="navbar shadow-sm rounded-xl bg-base-100">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -38,22 +39,23 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow space-y-2"
             >
-            {navItem}
+              {navItem}
+              <ToggleButtons theme={theme} toggleTheme={toggleTheme} />
+              <NavLink className="btn btn-primary w-30">Sign In</NavLink>
+              <NavLink className="btn btn-primary w-30">Be a Rider</NavLink>
             </ul>
           </div>
           <NavLink to="/" className="btn btn-ghost text-xl">
-        <Logo/>
+            <Logo />
           </NavLink>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="flex gap-5">
-            {navItem}
-          </ul>
+          <ul className="flex gap-5">{navItem}</ul>
         </div>
-              <div className="navbar-end flex gap-2">
-                  <ToggleButtons theme={theme} toggleTheme={toggleTheme} />
+        <div className="hidden navbar-end lg:flex gap-2">
+          <ToggleButtons theme={theme} toggleTheme={toggleTheme} />
           <NavLink className="btn btn-primary">Sign In</NavLink>
           <NavLink className="btn btn-primary">Be a Rider</NavLink>
         </div>

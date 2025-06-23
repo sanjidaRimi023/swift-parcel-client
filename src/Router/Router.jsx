@@ -6,6 +6,7 @@ import Home from "../Pages/Home/Home"
 import AuthLayout from "../Layouts/AuthLayout";
 import Login from "../Pages/Authentication/Login";
 import Register from "../Pages/Authentication/Register";
+import Coverage from "../Pages/Coverage";
 
 export const router = createBrowserRouter([
     {
@@ -16,6 +17,13 @@ export const router = createBrowserRouter([
                 path: "/",
                 index: true,
                 Component: Home
+            },
+            {
+                path: "/coverage",
+                index: true,
+                Component: Coverage,
+                loader: ()=> fetch("./districtData.json")
+
             }
         ]
     },

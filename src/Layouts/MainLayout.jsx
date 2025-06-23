@@ -6,13 +6,13 @@ import Navbar from "../Pages/Navbar";
 const MainLayout = () => {
   return (
     <>
-      
-        <div className="container mx-auto">
-          <Navbar />
-          <Outlet />
-          <Footer />
-        </div>
-    
+      <div className="container mx-auto">
+        <Navbar />
+
+        <Outlet />
+
+        <Footer />
+      </div>
     </>
   );
 };

@@ -37,11 +37,11 @@ const HowWork = () => {
         <h2 className="text-3xl md:text-4xl text-secondary font-bold mb-10">
           How It Works
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 px-4 md:px-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 px-4 md:px-10">
           {steps.map((step) => (
             <div
               key={step.id}
-              className="text-secondary rounded-2xl shadow-lg p-6 flex flex-col items-center hover:scale-105 transition-transform duration-300 border border-primary"
+              className="text-secondary rounded-2xl shadow-lg p-6 flex flex-col items-center hover:scale-105 transition-transform duration-300 border border-primary bg-base-100"
             >
               <img
                 src={step.img}

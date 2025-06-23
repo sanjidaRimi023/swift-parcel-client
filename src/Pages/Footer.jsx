@@ -1,11 +1,11 @@
 import React from "react";
-import Logo from "../Components/logo";
+import Logo from "../Components/Logosection";
 import { NavLink } from "react-router";
 
 const Footer = () => {
   return (
     <>
-      <footer className="container mx-auto footer flex flex-col footer-center bg-black text-white p-10 rounded-4xl mb-10">
+      <footer className="mx-auto footer flex flex-col footer-center bg-black text-white p-10 rounded-4xl">
         <div>
           <NavLink className="font-bold">
             <Logo />

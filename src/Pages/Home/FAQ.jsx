@@ -14,10 +14,7 @@ const FAQ = () => {
         </p>
 
         <div className="my-10 text-secondary">
-          <div
-            data-aos="fade-right"
-            className="collapse collapse-arrow bg-base-100 border border-base-300"
-          >
+          <div className="collapse collapse-arrow bg-base-100 border border-base-300">
             <input type="radio" name="my-accordion-2" defaultChecked />
             <div className="collapse-title font-semibold">
               1. How can I track my parcel in real-time?
@@ -28,10 +25,7 @@ const FAQ = () => {
               real-time updates.
             </div>
           </div>
-          <div
-            data-aos="fade-left"
-            className="collapse collapse-arrow bg-base-100 border border-base-300"
-          >
+          <div className="collapse collapse-arrow bg-base-100 border border-base-300">
             <input type="radio" name="my-accordion-2" />
             <div className="collapse-title font-semibold">
               Do you deliver outside major cities?
@@ -41,10 +35,7 @@ const FAQ = () => {
               within 48–72 hours.
             </div>
           </div>
-          <div
-            data-aos="fade-right"
-            className="collapse collapse-arrow bg-base-100 border border-base-300"
-          >
+          <div className="collapse collapse-arrow bg-base-100 border border-base-300">
             <input type="radio" name="my-accordion-2" />
             <div className="collapse-title font-semibold">
               Is my parcel safe during transit?
@@ -54,10 +45,7 @@ const FAQ = () => {
               and damage-free transit for every parcel.
             </div>
           </div>
-          <div
-            data-aos="fade-left"
-            className="collapse collapse-arrow bg-base-100 border border-base-300"
-          >
+          <div className="collapse collapse-arrow bg-base-100 border border-base-300">
             <input type="radio" name="my-accordion-2" />
             <div className="collapse-title font-semibold">
               How do I return or exchange a parcel?
@@ -67,10 +55,7 @@ const FAQ = () => {
               exchange products directly through our platform.
             </div>
           </div>
-          <div
-            data-aos="fade-right"
-            className="collapse collapse-arrow bg-base-100 border border-base-300"
-          >
+          <div className="collapse collapse-arrow bg-base-100 border border-base-300">
             <input type="radio" name="my-accordion-2" />
             <div className="collapse-title font-semibold">
               What happens if my parcel gets delayed or lost?

@@ -29,45 +29,40 @@ const benefits = [
 const Benefit = () => {
   return (
     <>
-      <div>
-        <section className="py-16 bg-base-100">
-          <div className="container mx-auto px-4">
-            <div className="flex flex-col gap-6">
-              <hr className="border-dashed mb-10" />
-              {benefits.map((benefit) => {
-                return (
-                  <>
-                    <div
-                      key={benefit.id}
-                      className="lg:flex items-center gap-6 bg-base-200 p-10 rounded-xl shadow-md hover:shadow-lg transition duration-300 relative"
-                    >
-                      <div className="flex flex-col items-center relative">
-                        <div className="bg-primary/10 p-4 rounded-full z-10">
-                          <img
-                            className="w-50 object-contain"
-                            src={benefit.image}
-                            alt=""
-                          />
-                        </div>
-                      </div>
-                      <div className="hidden lg:block border-l-2 border-dashed border-secondary h-36 mx-4"></div>
-
-                      <div className="flex flex-col justify-center text-secondary">
-                        <h3 className="text-lg font-semibold">
-                          {benefit.title}
-                        </h3>
-                        <p className="text-sm mt-2">{benefit.description}</p>
-                        <button className="btn btn-primary">click</button>
-                      </div>
+      <section className="py-16">
+        <div className="px-4">
+          <div className="flex flex-col gap-6">
+            <hr className="border-dashed mb-10" />
+            {benefits.map((benefit) => {
+              return (
+                <>
+                  <div
+                    key={benefit.id}
+                    className="lg:flex items-center gap-6 bg-base-100 p-10 rounded-xl shadow-md hover:shadow-lg transition duration-300 relative"
+                  >
+                    <div className="flex flex-col items-center relative">
+                      <span className="bg-primary/10 p-4 rounded-full z-10">
+                        <img
+                          className="w-50 object-contain"
+                          src={benefit.image}
+                          alt=""
+                        />
+                      </span>
                     </div>
-                  </>
-                );
-              })}
-              <hr className="border-dashed mt-10" />
-            </div>
+                    <div className="hidden lg:block border-l-2 border-dashed border-secondary h-36 mx-4"></div>
+
+                    <div className="flex flex-col justify-center text-secondary">
+                      <h3 className="text-lg font-semibold">{benefit.title}</h3>
+                      <p className="text-sm mt-2">{benefit.description}</p>
+                    </div>
+                  </div>
+                </>
+              );
+            })}
+            <hr className="border-dashed mt-10" />
           </div>
-        </section>
-      </div>
+        </div>
+      </section>
     </>
   );
 };

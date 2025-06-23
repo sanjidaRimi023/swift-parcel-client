@@ -16,7 +16,9 @@ AOS.init({
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <div className="bg-base-200">
+        <RouterProvider router={router} />
+      </div>
     </AuthProvider>
   </StrictMode>
 );
