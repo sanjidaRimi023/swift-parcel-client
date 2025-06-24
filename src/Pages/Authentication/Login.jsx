@@ -5,14 +5,18 @@ import "../../../src/index.css";
 import SocialBtn from "../../Components/SocialBtn";
 
 const Login = () => {
+  
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
+    
     console.log(data);
   };
+
+
   return (
     <div className="space-y-4 h-screen">
       <form onSubmit={handleSubmit(onSubmit)}>

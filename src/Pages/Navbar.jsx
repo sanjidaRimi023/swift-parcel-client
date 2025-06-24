@@ -1,20 +1,37 @@
-import React from "react";
-import { NavLink } from "react-router";
+import React, { useContext } from "react";
+import { Link, NavLink, useNavigate } from "react-router";
 import ToggleButtons from "../Components/ToggleButtons";
 import useTheme from "../Hooks/useTheme";
 import Logo from "../Components/Logosection";
+import { AuthContext } from "../Context/AuthContext";
+import { toast } from "react-toastify";
 
 const Navbar = () => {
   const { theme, toggleTheme } = useTheme();
+
+  const { logoutUser, user } = useContext(AuthContext);
+  const navigate = useNavigate();
   const navItem = (
     <>
       <NavLink to="/">Home</NavLink>
       <NavLink to="/coverage">Coverage</NavLink>
       <NavLink to="/pricing">Pricing</NavLink>
+      <NavLink to="/send-parcel">Send Parcel</NavLink>
       <NavLink to="/about-use">About Us</NavLink>
       <NavLink to="/be-a-rider">Be a Rider</NavLink>
     </>
   );
+
+  const hangleLogoutBtn = () => {
+    logoutUser()
+      .then(() => {
+        toast.success("Logged out successfully");
+        navigate("/login");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <>
       <div className="navbar shadow-sm rounded-xl bg-base-100">
@@ -43,8 +60,23 @@ const Navbar = () => {
             >
               {navItem}
               <ToggleButtons theme={theme} toggleTheme={toggleTheme} />
-              <NavLink className="btn btn-primary w-30">Sign In</NavLink>
-              <NavLink className="btn btn-primary w-30">Be a Rider</NavLink>
+               {user ? (
+            <button onClick={hangleLogoutBtn} className="block btn btn-primary">
+              Logout
+            </button>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                className="block btn btn-primary"
+              >
+                Login
+              </Link>
+              <Link to="/register" className="block btn btn-primary">
+                Register
+              </Link>
+            </>
+          )}
             </ul>
           </div>
           <NavLink to="/" className="btn btn-ghost text-xl">
@@ -56,8 +88,23 @@ const Navbar = () => {
         </div>
         <div className="hidden navbar-end lg:flex gap-2">
           <ToggleButtons theme={theme} toggleTheme={toggleTheme} />
-          <NavLink className="btn btn-primary">Sign In</NavLink>
-          <NavLink className="btn btn-primary">Be a Rider</NavLink>
+          {user ? (
+            <button onClick={hangleLogoutBtn} className="block btn btn-primary">
+              Logout
+            </button>
+          ) : (
+            <>
+              <Link
+                to="/login"
+                className="block btn btn-primary"
+              >
+                Login
+              </Link>
+              <Link to="/register" className="block btn btn-primary">
+                Register
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </>

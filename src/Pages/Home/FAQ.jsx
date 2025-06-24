@@ -32,7 +32,7 @@ const FAQ = () => {
             </div>
             <div className="collapse-content text-sm">
               Yes! We offer nationwide delivery to every district in Bangladesh
-              within 48–72 hours.
+              within 48-72 hours.
             </div>
           </div>
           <div className="collapse collapse-arrow bg-base-100 border border-base-300">
