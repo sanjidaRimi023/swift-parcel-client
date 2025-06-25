@@ -28,7 +28,7 @@ createRoot(document.getElementById("root")).render(
           pauseOnFocusLoss
           draggable
           pauseOnHover
-          theme="colored"
+          theme="light"
           transition={Bounce}
         />
       </div>
