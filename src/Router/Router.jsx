@@ -10,6 +10,7 @@ import Coverage from "../Pages/Coverage";
 import SendParcel from "../Pages/sendParcel";
 import PrivateRoute from "./PrivateRoute";
 import Pricing from "../Pages/Pricing";
+import About from "../Pages/About";
 
 export const router = createBrowserRouter([
     {
@@ -40,6 +41,10 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute>
                     <Pricing/>
                 </PrivateRoute>
+            },
+            {
+                path: "/about",
+                Component: About
             },
         ]
     },

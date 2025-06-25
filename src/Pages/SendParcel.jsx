@@ -51,13 +51,19 @@ const SendParcel = () => {
 
   return (
     <div className="max-w-4xl mx-auto p-6 bg-base-100 shadow-xl rounded-xl my-10">
-      <h2 className="text-2xl font-bold mb-2">Send Parcel</h2>
-      <p className="mb-6 text-gray-500">Please fill in all the required details.</p>
+      <h2 className="text-4xl font-bold mb-2 text-secondary text-center">
+        Send Parcel
+      </h2>
+      <p className="mb-6 text-gray-500 text-center">
+        Please fill in all the required details.
+      </p>
 
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-10">
         {/* === Parcel Info === */}
         <section>
-          <h3 className="text-xl font-semibold mb-3">Parcel Info</h3>
+          <h3 className="text-xl font-semibold mb-3 text-secondary">
+            Parcel Info
+          </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
               <label className="label font-medium">Type</label>
@@ -81,7 +87,9 @@ const SendParcel = () => {
                   <span>Non-document</span>
                 </label>
               </div>
-              {errors.type && <p className="text-error text-sm mt-1">Please select a type</p>}
+              {errors.type && (
+                <p className="text-error text-sm mt-1">Please select a type</p>
+              )}
             </div>
 
             <div>
@@ -90,7 +98,9 @@ const SendParcel = () => {
                 {...register("title", { required: true })}
                 className="input input-bordered w-full"
               />
-              {errors.title && <span className="text-error text-sm">Title is required</span>}
+              {errors.title && (
+                <span className="text-error text-sm">Title is required</span>
+              )}
             </div>
 
             {type === "non-document" && (
@@ -109,7 +119,9 @@ const SendParcel = () => {
 
         {/* === Sender Info === */}
         <section>
-          <h3 className="text-xl font-semibold mb-3">Sender Info</h3>
+          <h3 className="text-xl font-semibold mb-3 text-secondary">
+            Sender Info
+          </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
               <label className="label">Name</label>
@@ -127,7 +139,9 @@ const SendParcel = () => {
                 {...register("senderContact", { required: true })}
                 className="input input-bordered w-full"
               />
-              {errors.senderContact && <span className="text-error text-sm">Required</span>}
+              {errors.senderContact && (
+                <span className="text-error text-sm">Required</span>
+              )}
             </div>
 
             <div>
@@ -139,10 +153,14 @@ const SendParcel = () => {
               >
                 <option value="">Select Region</option>
                 {regionList.map((region, idx) => (
-                  <option key={idx} value={region}>{region}</option>
+                  <option key={idx} value={region}>
+                    {region}
+                  </option>
                 ))}
               </select>
-              {errors.senderRegion && <p className="text-error text-sm">Region is required</p>}
+              {errors.senderRegion && (
+                <p className="text-error text-sm">Region is required</p>
+              )}
             </div>
           </div>
 
@@ -156,14 +174,18 @@ const SendParcel = () => {
               >
                 <option value="">Select District</option>
                 {senderDistricts.map((district, idx) => (
-                  <option key={idx} value={district}>{district}</option>
+                  <option key={idx} value={district}>
+                    {district}
+                  </option>
                 ))}
               </select>
-              {errors.senderCenter && <p className="text-error text-sm">Service Center is required</p>}
+              {errors.senderCenter && (
+                <p className="text-error text-sm">Service Center is required</p>
+              )}
             </div>
 
             <div>
-              <label className="label">Pickup Instruction</label>
+              <label className="label">Address</label>
               <input
                 {...register("pickupInstruction", { required: true })}
                 className="input input-bordered w-full"
@@ -172,7 +194,7 @@ const SendParcel = () => {
           </div>
 
           <div className="mt-4">
-            <label className="label">Address</label>
+            <label className="label">Pickup Instruction</label>
             <textarea
               {...register("senderAddress", { required: true })}
               className="textarea textarea-bordered w-full"
@@ -181,8 +203,10 @@ const SendParcel = () => {
         </section>
 
         {/* === Receiver Info === */}
-        <section>
-          <h3 className="text-xl font-semibold mb-3">Receiver Info</h3>
+        <section className="space-y-3">
+          <h3 className="text-xl font-semibold mb-3 text-secondary">
+            Receiver Info
+          </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
               <label className="label">Name</label>
@@ -209,16 +233,22 @@ const SendParcel = () => {
               >
                 <option value="">Select Region</option>
                 {regionList.map((region, idx) => (
-                  <option key={idx} value={region}>{region}</option>
+                  <option key={idx} value={region}>
+                    {region}
+                  </option>
                 ))}
               </select>
-              {errors.receiverRegion && <p className="text-error text-sm">Region is required</p>}
+              {errors.receiverRegion && (
+                <p className="text-error text-sm">Region is required</p>
+              )}
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
             <div>
-              <label className="label">Receiver Service Center (District)</label>
+              <label className="label">
+                Receiver Service Center (District)
+              </label>
               <select
                 {...register("receiverCenter", { required: true })}
                 className="select select-bordered w-full"
@@ -226,7 +256,9 @@ const SendParcel = () => {
               >
                 <option value="">Select District</option>
                 {receiverDistricts.map((district, idx) => (
-                  <option key={idx} value={district}>{district}</option>
+                  <option key={idx} value={district}>
+                    {district}
+                  </option>
                 ))}
               </select>
               {errors.receiverCenter && (
@@ -235,26 +267,28 @@ const SendParcel = () => {
             </div>
 
             <div>
-              <label className="label">Delivery Instruction</label>
-              <input
-                {...register("deliveryInstruction", { required: true })}
+              <label className="label">Address</label>
+              <textarea
+                {...register("receiverAddress", { required: true })}
                 className="input input-bordered w-full"
               />
             </div>
           </div>
 
-          <div className="mt-4">
-            <label className="label">Address</label>
-            <textarea
-              {...register("receiverAddress", { required: true })}
+          <div>
+            <label className="label">Delivery Instruction</label>
+            <input
+              {...register("deliveryInstruction", { required: true })}
               className="textarea textarea-bordered w-full"
             />
           </div>
         </section>
-
+    
+          <span className="text-xl text-secondary">PickUp Time 4pm-7pm Approx.</span>
+      
         {/* === Submit Button === */}
         <div className="text-center">
-          <button type="submit" className="btn btn-accent">
+          <button type="submit" className="btn btn-primary">
             Submit
           </button>
         </div>
@@ -263,7 +297,9 @@ const SendParcel = () => {
       {/* === Confirmation Section === */}
       {showConfirm && (
         <div className="mt-6 text-center space-y-3">
-          <p className="text-lg font-semibold">Total Delivery Cost: ৳{deliveryCost}</p>
+          <p className="text-lg font-semibold">
+            Total Delivery Cost: ৳{deliveryCost}
+          </p>
           <button className="btn btn-accent" onClick={handleConfirm}>
             Confirm and Save
           </button>
