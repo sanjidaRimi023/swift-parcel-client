@@ -15,8 +15,13 @@ const Navbar = () => {
     <>
       <NavLink to="/">Home</NavLink>
       <NavLink to="/coverage">Coverage</NavLink>
-      <NavLink to="/pricing">Pricing</NavLink>
       <NavLink to="/send-parcel">Send Parcel</NavLink>
+      <NavLink to="/pricing">Pricing</NavLink>
+      {
+        user && <>
+        <NavLink to="/dashboard">Dashboard</NavLink>
+        </>
+      }
       <NavLink to="/about">About Us</NavLink>
       <NavLink to="/be-a-rider">Be a Rider</NavLink>
     </>
@@ -56,7 +61,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content rounded-box z-1 mt-3 w-52 p-2 shadow space-y-2"
+              className="menu menu-sm dropdown-content bg-base-300 rounded-box z-1 mt-3 w-52 p-2 shadow space-y-2"
             >
               {navItem}
               <ToggleButtons theme={theme} toggleTheme={toggleTheme} />
@@ -79,7 +84,7 @@ const Navbar = () => {
           )}
             </ul>
           </div>
-          <NavLink to="/" className="btn btn-ghost text-xl">
+          <NavLink to="/" className="text-xl">
             <Logo />
           </NavLink>
         </div>

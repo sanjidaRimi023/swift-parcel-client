@@ -11,6 +11,7 @@ import SendParcel from "../Pages/sendParcel";
 import PrivateRoute from "./PrivateRoute";
 import Pricing from "../Pages/Pricing";
 import About from "../Pages/About";
+import DashBoard from "../Components/DashBoard";
 
 export const router = createBrowserRouter([
     {
@@ -45,6 +46,12 @@ export const router = createBrowserRouter([
             {
                 path: "/about",
                 Component: About
+            },
+            {
+                path: "/dashboard",
+                element: <PrivateRoute>
+                    <DashBoard/>
+                </PrivateRoute>
             },
         ]
     },
