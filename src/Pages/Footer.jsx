@@ -1,43 +1,50 @@
 import React from "react";
 import Logo from "../Components/Logosection";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router"; 
 
 const Footer = () => {
   return (
-    <>
-      <footer className="mx-auto footer flex flex-col footer-center bg-black text-white p-10 rounded-4xl">
-        <div>
-          <NavLink className="font-bold">
+    <footer className="bg-black text-white px-4 py-10 md:px-10 lg:px-20 rounded-4xl">
+      <div className="max-w-screen-xl mx-auto flex flex-col gap-8 items-center">
+        
+        <div className="text-center md:text-left flex flex-col items-center">
+          <Link to="/" className="inline-block font-bold">
             <Logo />
-          </NavLink>
-          <p className="w-150">
+          </Link>
+          <p className="mt-4 text-sm md:text-base max-w-xl mx-auto md:mx-0">
             Enjoy fast, reliable parcel delivery with real-time tracking and
             zero hassle. From personal packages to business shipments — we
             deliver on time, every time.
           </p>
         </div>
+
         <hr className="border border-dashed border-secondary w-full" />
-        <nav>
-          <div className="grid grid-flow-col gap-4">
-            <NavLink>Coverage</NavLink>
-            <NavLink>Service</NavLink>
-            <NavLink>Pricing</NavLink>
-            <NavLink>About Us</NavLink>
-            <NavLink>Blog</NavLink>
-            <NavLink>Contact Us</NavLink>
+
+        {/* Navigation Links */}
+        <nav className="text-center">
+          <div className="flex flex-wrap justify-center md:justify-start gap-4 text-sm md:text-base">
+            <NavLink to="/coverage">Coverage</NavLink>
+            <NavLink to="/service">Service</NavLink>
+            <NavLink to="/pricing">Pricing</NavLink>
+            <NavLink to="/about">About Us</NavLink>
+            <NavLink to="/blog">Blog</NavLink>
+            <NavLink to="/contact">Contact Us</NavLink>
           </div>
         </nav>
-        <hr className="border-1 border-dashed border-secondary w-full" />
-        <nav>
-          <div className="grid grid-flow-col gap-4">
-            <span>Facebook</span>
-            <span>github</span>
-            <span>LInkedIn</span>
-            <span>Twitter</span>
+
+        <hr className="border border-dashed border-secondary w-full" />
+
+        {/* Social Media Links */}
+        <nav className="text-center">
+          <div className="flex justify-center gap-4 text-sm md:text-base">
+            <Link>Facebook</Link>
+            <Link>GitHub</Link>
+            <Link>LinkedIn</Link>
+            <Link>Twitter</Link>
           </div>
         </nav>
-      </footer>
-    </>
+      </div>
+    </footer>
   );
 };
 

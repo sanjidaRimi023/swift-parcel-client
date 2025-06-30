@@ -6,6 +6,7 @@ import ClientSlider from "./ClientSlider";
 import Benefit from "./Benefit";
 import Marchant from "./Marchant";
 import FAQ from "./FAQ";
+import Pricing from "../Pricing";
 
 const Home = () => {
   return (
@@ -16,6 +17,7 @@ const Home = () => {
       <ClientSlider />
       <Benefit />
       <Marchant />
+      <Pricing/>
       <FAQ />
     </>
   );

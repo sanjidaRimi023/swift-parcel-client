@@ -16,12 +16,11 @@ const Navbar = () => {
       <NavLink to="/">Home</NavLink>
       <NavLink to="/coverage">Coverage</NavLink>
       <NavLink to="/send-parcel">Send Parcel</NavLink>
-      <NavLink to="/pricing">Pricing</NavLink>
-      {
-        user && <>
-        <NavLink to="/dashboard">Dashboard</NavLink>
+      {user && (
+        <>
+          <NavLink to="/dashboard">Dashboard</NavLink>
         </>
-      }
+      )}
       <NavLink to="/about">About Us</NavLink>
       <NavLink to="/be-a-rider">Be a Rider</NavLink>
     </>
@@ -31,7 +30,7 @@ const Navbar = () => {
     logoutUser()
       .then(() => {
         toast.success("Logged out successfully");
-        navigate("/login");
+        navigate("/");
       })
       .catch((error) => {
         console.log(error);
@@ -65,23 +64,25 @@ const Navbar = () => {
             >
               {navItem}
               <ToggleButtons theme={theme} toggleTheme={toggleTheme} />
-               {user ? (
-            <button onClick={hangleLogoutBtn} className="block btn btn-primary">
-              Logout
-            </button>
-          ) : (
-            <>
-              <Link
-                to="/login"
-                className="block btn btn-primary"
-              >
-                Login
-              </Link>
-              <Link to="/register" className="block btn btn-primary">
-                Register
-              </Link>
-            </>
-          )}
+              {user ? (
+                <button
+                  onClick={hangleLogoutBtn}
+                  className="block btn btn-primary"
+                >
+                  Logout
+                </button>
+              ) : (
+                <>
+                  <Link to="/login">
+                    <button className="btn btn-primary">login</button>
+                  </Link>
+
+                 <Link to="/register">
+                    <button className="btn btn-primary">register</button>
+                  </Link>
+
+                </>
+              )}
             </ul>
           </div>
           <NavLink to="/" className="text-xl">
@@ -99,15 +100,13 @@ const Navbar = () => {
             </button>
           ) : (
             <>
-              <Link
-                to="/login"
-                className="block btn btn-primary"
-              >
-                Login
-              </Link>
-              <Link to="/register" className="block btn btn-primary">
-                Register
-              </Link>
+              <Link to="/login">
+                    <button className="btn btn-primary">login</button>
+                  </Link>
+
+                 <Link to="/register">
+                    <button className="btn btn-primary">register</button>
+                  </Link>
             </>
           )}
         </div>

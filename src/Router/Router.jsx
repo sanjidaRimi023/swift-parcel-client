@@ -12,6 +12,7 @@ import PrivateRoute from "./PrivateRoute";
 import Pricing from "../Pages/Pricing";
 import About from "../Pages/About";
 import DashBoard from "../Components/DashBoard";
+import MyParcles from "../Pages/Dashboard/MyParcles";
 
 export const router = createBrowserRouter([
     {
@@ -38,12 +39,6 @@ export const router = createBrowserRouter([
 
             },
             {
-                path: "/pricing",
-                element: <PrivateRoute>
-                    <Pricing/>
-                </PrivateRoute>
-            },
-            {
                 path: "/about",
                 Component: About
             },
@@ -67,6 +62,24 @@ export const router = createBrowserRouter([
                 path: 'register',
                 Component: Register
             }
+        ]
+    },
+    {
+        path:'/dashboard',
+        element: <PrivateRoute>
+            <DashBoard/>
+        </PrivateRoute>,
+        children: [
+            {
+                index: true,
+                element: <div>
+            home page dashboard
+        </div>      
+        },
+            {
+                path: 'myParcels',
+                element: <MyParcles/>
+            },
         ]
     }
 ])
