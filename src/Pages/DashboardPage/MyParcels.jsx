@@ -4,9 +4,12 @@ import useAuth from "../../Hooks/useAuth";
 import useAxios from "../../Hooks/useAxios";
 import { Trash2, View, Wallet } from "lucide-react";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router";
 
 const MyParcles = () => {
   const { user } = useAuth();
+ 
+  const navigate = useNavigate()
 
   const axiosSecure = useAxios();
   const { data: parcels = [], refetch } = useQuery({
@@ -24,12 +27,13 @@ const MyParcles = () => {
     console.log("Viewing parcel:", parcels);
   };
 
-  const handlePay = (parcels) => {
-    console.log("Paying for:", parcels);
+  const handlePay = (id) => {
+    console.log(id);
+    navigate(`/dashboard/payment/${id}`)
   };
 
   const handleDelete = async (id) => {
-  // console.log("ID received by handleDelete:", id);
+
     const confirm = await Swal.fire({
         title: "Are you sure?",
         text: "You won't be able to revert this!",
@@ -48,7 +52,7 @@ const MyParcles = () => {
                     title: "Deleted!",
                     text: "Your file has been deleted.",
                     icon: "success",
-                    timer: 1500,
+                    timer: 1000,
                     showConfirmButton: false
                 });
               refetch()
@@ -112,9 +116,9 @@ const MyParcles = () => {
                 >
                   <View className="mr-1" /> View
                 </button>
-
+                  {/* handle pay button */}
                 <button
-                  onClick={() => handlePay(parcel)}
+                  onClick={() => handlePay(parcel._id)}
                   className="btn btn-sm btn-success text-white"
                   disabled={parcel.payment_status === "paid"}
                 >

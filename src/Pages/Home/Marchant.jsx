@@ -4,7 +4,7 @@ import merchantImg2 from "../../assets/location-merchant.png";
 
 const Merchant = () => {
   return (
-    <div data-aos="flip-left" className="my-10">
+    <div data-aos="fade-up" className="my-10">
       <div className="relative w-full overflow-hidden bg-secondary rounded-4xl mb-10 lg:p-20 md:p-12 p-6 text-white">
         
         <div

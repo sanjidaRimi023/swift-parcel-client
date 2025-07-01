@@ -1,5 +1,7 @@
+
 import React from "react";
-import { NavLink, Outlet } from "react-router";
+
+import { NavLink, Outlet } from "react-router"; 
 import Logo from "./Logosection";
 import { House, ShoppingBag } from "lucide-react";
 
@@ -8,7 +10,7 @@ const DashBoard = () => {
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
       <div className="drawer-content">
-        {/* Page content here */}
+  
         <div className="navbar bg-base-300 w-full lg:hidden">
           <div className="flex-none lg:hidden">
             <label
@@ -33,7 +35,10 @@ const DashBoard = () => {
           </div>
           <div className="mx-2 flex-1 px-2">Dashboard</div>
         </div>
-        <Outlet/>
+
+        <div className="p-4 md:p-8">
+            <Outlet />
+        </div>
       </div>
       <div className="drawer-side">
         <label
@@ -42,16 +47,24 @@ const DashBoard = () => {
           className="drawer-overlay"
         ></label>
         <ul className="menu bg-base-300 min-h-full w-80 p-6 space-y-6">
-          {/* Sidebar content here */}
-          <NavLink to="/">
-            <Logo/>
-          </NavLink>
-          <NavLink className="font-bold text-lg flex gap-2">
-           <House />  Home
-          </NavLink>
-          <NavLink to="myParcels" className="font-bold text-lg flex gap-2">
-            <ShoppingBag />my parcels
-          </NavLink>
+
+          <li>
+            <NavLink to="/">
+              <Logo />
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="/dashboard" end className="font-bold text-lg flex gap-2">
+              <House /> Home
+            </NavLink>
+          </li>
+
+          <li>
+            <NavLink to="myParcels" className="font-bold text-lg flex gap-2">
+              <ShoppingBag />My Parcels
+            </NavLink>
+          </li>
         </ul>
       </div>
     </div>

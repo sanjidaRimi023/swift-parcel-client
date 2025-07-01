@@ -32,7 +32,7 @@ const HowWork = () => {
   return (
     <>
       <section
-        data-aos="zoom-in"
+        data-aos="fade-up"
         className="py-16 text-center">
         <h2 className="text-3xl md:text-4xl text-secondary font-bold mb-10">
           How It Works
