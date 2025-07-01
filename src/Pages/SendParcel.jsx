@@ -15,7 +15,7 @@ const SendParcel = () => {
     register,
     handleSubmit,
     watch,
-    reset,
+    // reset,
     formState: { errors },
   } = useForm();
 
@@ -83,7 +83,7 @@ const SendParcel = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         handleConfirm(data, totalCost);
-        reset();
+        // reset();
       }
     });
   };

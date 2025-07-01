@@ -1,8 +1,9 @@
 import React from "react";
+import { ScaleLoader } from "react-spinners";
 
 const LoadSpinner = () => {
   return (
-    <div>
+    <div className="flex items-center justify-center min-h-screen">
       <ScaleLoader
         barCount={7}
         color="#94f609"
