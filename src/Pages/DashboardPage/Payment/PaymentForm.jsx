@@ -17,7 +17,6 @@ const PaymentForm = () => {
   const navigate = useNavigate();
   const [isProcessing, setIsProcessing] = useState(false);
 
-
   const { isPending, data: parcelInfo = {} } = useQuery({
     queryKey: ["parcels", parcelId],
     queryFn: async () => {
@@ -37,14 +36,13 @@ const PaymentForm = () => {
     e.preventDefault();
 
     if (!stripe || !elements) {
-
       return;
     }
-    setIsProcessing(true); 
+    setIsProcessing(true);
 
     const card = elements.getElement(CardElement);
     if (!card) {
-          setIsProcessing(false);
+      setIsProcessing(false);
       return;
     }
 
@@ -53,13 +51,12 @@ const PaymentForm = () => {
       card,
     });
     if (error) {
-       setIsProcessing(false);
+      setIsProcessing(false);
       Swal.fire({
-    icon: "error",
-    title: "Payment Failed!",
-    text: error.message,
+        icon: "error",
+        title: "Payment Failed!",
+        text: error.message,
         confirmButtonText: "Try Again",
-  
       });
       return;
     } else {
@@ -129,7 +126,7 @@ const PaymentForm = () => {
           disabled={!stripe}
           className="btn btn-primary w-full"
         >
-         {isProcessing ? "Processing Payment..." : `Pay ${amount}`}
+          {isProcessing ? "Processing Payment..." : `Pay ${amount}`}
         </button>
         {error && <p className="text-red-500">{error}</p>}
       </form>
