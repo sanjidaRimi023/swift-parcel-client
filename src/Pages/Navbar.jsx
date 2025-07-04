@@ -13,16 +13,16 @@ const Navbar = () => {
   const navigate = useNavigate();
   const navItem = (
     <>
-      <NavLink to="/">Home</NavLink>
-      <NavLink to="/coverage">Coverage</NavLink>
-      <NavLink to="/send-parcel">Send Parcel</NavLink>
+      <NavLink to="/" className="text-sm">Home</NavLink>
+      <NavLink to="/coverage" className="text-sm">Coverage</NavLink>
+      <NavLink to="/send-parcel" className="text-sm">Send Parcel</NavLink>
       {user && (
         <>
-          <NavLink to="/dashboard">Dashboard</NavLink>
+          <NavLink to="/dashboard" className="text-sm">Dashboard</NavLink>
         </>
       )}
-      <NavLink to="/about">About Us</NavLink>
-      <NavLink to="/be-a-rider">Be a Rider</NavLink>
+      <NavLink to="/about" className="text-sm">About Us</NavLink>
+      <NavLink to="/be-a-rider" className="text-sm">Be a Rider</NavLink>
     </>
   );
 

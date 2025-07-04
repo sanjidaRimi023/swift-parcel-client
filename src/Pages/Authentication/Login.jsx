@@ -1,10 +1,15 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router";
+import { Link, useLocation, useNavigate } from "react-router";
 import "../../../src/index.css";
 import SocialBtn from "../../Components/SocialBtn";
+import useAuth from "../../Hooks/useAuth";
 
 const Login = () => {
+  const { loginUser } = useAuth();
+   const location = useLocation();
+    const navigate = useNavigate();
+    const from = location.state?.from || '/';
   
   const {
     register,
@@ -13,13 +18,18 @@ const Login = () => {
   } = useForm();
   
   const onSubmit = (data) => {
+        loginUser(data.email, data.password)
+            .then(result => {
+                console.log(result.user);
+                navigate(from);
+            })
+            .catch(error => console.log(error))
+    }
     
-    console.log(data);
-  };
 
 
   return (
-    <div className="space-y-4 h-screen">
+    <div className="space-y-4 lg:py-27">
       <form onSubmit={handleSubmit(onSubmit)}>
         <p className="text-4xl  font-bold">Welcome Back </p>
         <p className="text-lg">Login with SwiftParcel</p>
@@ -59,7 +69,7 @@ const Login = () => {
       </form>
       <span>
         Don't have any account? {" "}
-        <Link to="/register" className="btn-link text-primary">Register</Link>
+        <Link state={{ from }} to="/register" className="btn-link text-primary">Register</Link>
       </span>
       <div className="divider w-80">OR</div>
      <SocialBtn/>

@@ -16,6 +16,7 @@ const PaymentHistory = () => {
       return res.data;
     },
   });
+  console.log(payments);
 
   if (isPending) {
     return <LoadSpinner />;
@@ -34,8 +35,9 @@ const PaymentHistory = () => {
               <tr className="text-left">
                 <th className="py-3 px-4">#</th>
                 <th className="py-3 px-4">Transaction ID</th>
+                
                 <th className="py-3 px-4">Amount</th>
-                <th className="py-3 px-4">Method</th>
+           <th className="py-3 px-4">parcelsId</th>
                 <th className="py-3 px-4">Date</th>
                 <th className="py-3 px-4">Status</th>
               </tr>
@@ -47,11 +49,12 @@ const PaymentHistory = () => {
                   className="border-t hover:bg-gray-50 transition duration-200"
                 >
                   <td className="py-2 px-4">{index + 1}</td>
-                  <td className="py-2 px-4 font-mono text-blue-600">
+                  <td className="py-2 px-4 font-mono truncate text-blue-500">
                     {payment.transactionId?.slice(0, 10)}...
                   </td>
                   <td className="py-2 px-4">${payment.amount}</td>
-                  <td className="py-2 px-4">{payment.paymentMethod}</td>
+                  <td className="py-2 px-4 truncate">{payment.parcelId?.slice(0,5)}...</td>
+            
                   <td className="py-2 px-4">
                     {new Date(payment.paidAt).toLocaleString()}
                   </td>
