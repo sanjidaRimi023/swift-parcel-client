@@ -10,8 +10,8 @@ import { Bounce, ToastContainer } from "react-toastify";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 AOS.init({
-  duration: 1000,
-  delay: 1000,
+  duration: 3000,
+  
 });
 const queryClient = new QueryClient()
 
